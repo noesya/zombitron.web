@@ -1,54 +1,61 @@
-# Zombitron
+# Zombitron version WEB
 
-Zombitronica a plusieurs interfaces. 
+Zombitron a plusieurs interfaces constuites à partir de téléphones obsoletes: 
+- [Zombitronica](https://github.com/noesya/zombitronica) > un instrument de musique
 
-La première est composée d'un séquenceur et de différents controlleurs.
+Vous pouvez cloner le code correspondant en allant directement sur les repos associés. 
 
+Ce repo est une base de tests pour constuire son propre zombitron. 
 
-##  Detail des instruments
+Il vous faudra un ou plusieurs téléphones pourvus d'un navigateur avec accès wifi.
 
-### le sequenceur > `http://[ZOMBITRON_SERVEUR_IP]/sequencer`
-4 instruments peuvent etre joués en sequence sur 8 temps
-il faut appuyer sur play pour le demarrer, et à nouveau sur play pour le mettre en pause
-![sequencer](docs/sequencer.png?raw=true "Sequenceur")
+# Mode d'emploi
+## Pour executer le serveur node js depuis son ordinateur
+1. Cloner le repo
+  ```
+  git clone https://github.com/noesya/zombitron
+  ```
+2. Rentrer dans le dossier, installer les dépendances
+  ```
+  cd zombitron
+  npm install
+  ```
 
-### le controlleur >  `http://[ZOMBITRON_SERVEUR_IP]/controller`
-Le controlleur affiche trois jauges permettant de controller le son issu du sequenceur
-( de gauche a droite): 
-- le nombre de BPM du sequenceur
-- distortion
-- reverbe
-![Controlleur](docs/control.png?raw=true "Controlleur")
+3. Cas particulier pour un serveur https (permettant d'utiliser des données de capteurs natifs des téléphones)
+Generer un certificat  https: 
+`sudo openssl req -x509 -nodes -days 364 -newkey rsa:4096 -keyout selfsigned.key -out selfsigned.crt`
+à placer à la racine du code. 
 
-### les effets > `http://[ZOMBITRON_SERVEUR_IP]/slider`
-4 sliders permettent de modifier une composante des instruments du sequenceur 
-Il faut jouer avec.
-![Sliders](docs/slide.png?raw=true "Sliders")
+Il faut changer le mode de permission des fichiers générés : 
+```
+  sudo chmod 755 selfsigned.crt
+  sudo chmod 755 selfsigned.key
+```
 
-### le traquePad > `http://[ZOMBITRON_SERVEUR_IP]/position`
-et le traquepad qui ajoute une delicatesse au tout avec sa jolie gamme pentatonique
-![Traquepad](docs/traque.png?raw=true "Traquepad")
+IPHONE 
+Parfois : il faut activer la motion dans les parametres du telephone > safari
 
-## Setup serveur
-1. Choisir un vieil Android pour le transformer en serveur-zombitron.
-2. Installer [Termux](https://play.google.com/store/apps/details?id=com.termux) sur l'appareil
-3. Lancer Termux et installer node, git et yarn
+4. Lancer le serveur
+  ```
+  npm run zombitron
+  ``` 
+
+## Pour executer le serveur node sur un Android
+Avant l'étape 1 : 
+- Choisir un vieil Android pour le transformer en serveur-zombitron.
+- Installer [Termux](https://play.google.com/store/apps/details?id=com.termux) sur l'appareil
+- Lancer Termux et installer node, git et yarn
   ```
   pkg install nodejs git yarn
   ```
-4. Cloner le repo
-  ```
-  git clone https://github.com/noesya/zombitronpolis
-  ```
-5. Rentrer dans le dossier, installer les dépendances
-  ```
-  cd zombitronica
-  npm install
-  ```
-6. Lancer le serveur
-  ```
-  npm run zombitronica1
-  ```
+- Retourner à 1. 
+
+## Une fois le serveur démarré
+Rendez-vous à l'adresse https://[ZOMBITRONIP:PORT]/ avec un telephone ou un ordinateur
+et https://[ZOMBITRONIP:PORT]/controller avec un telephone
+
+### Cas particulier du https
+Pour autoriser l'accès à certains capteurs 
 
 ## Mise à jour
 
@@ -71,3 +78,4 @@ Pour avoir la dernière version du code, lancer `git pull` dans le répertoire d
 ### Connexion client
 
 Dans un terminal : `ssh [ZOMBITRON_SERVEUR_IP] -p 8022` et entrer le mot de passe.
+s

@@ -2,11 +2,11 @@ const Zombitron = require("./Zombitron")
 const zombitronpolis = new Zombitron(https = true);
 
 zombitronpolis.app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/views/zombitronpolis.html');
+  res.sendFile(__dirname + '/views/index.html');
 });
 
 zombitronpolis.app.get('/controller', function (req, res) {
-  res.sendFile(__dirname + '/views/potentiometers_5.html');
+  res.sendFile(__dirname + '/views/controller.html');
 
 });
 
