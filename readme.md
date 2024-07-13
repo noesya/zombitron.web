@@ -2,7 +2,8 @@
 
 Zombitron a plusieurs interfaces constuites à partir de téléphones obsoletes: 
 - [Zombitronica](https://github.com/noesya/zombitronica) > un instrument de musique
-
+- [Zombitronpolis](https://github.com/noesya/zombitronpolis) > une interface pour jouer avec des polices
+  
 Vous pouvez cloner le code correspondant en allant directement sur les repos associés. 
 
 Ce repo est une base de tests pour constuire son propre zombitron. 
@@ -78,4 +79,6 @@ Pour avoir la dernière version du code, lancer `git pull` dans le répertoire d
 ### Connexion client
 
 Dans un terminal : `ssh [ZOMBITRON_SERVEUR_IP] -p 8022` et entrer le mot de passe.
-s
+
+## Le code
+A venir
