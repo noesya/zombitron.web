@@ -54,8 +54,7 @@ Avant l'étape 1 :
 Rendez-vous à l'adresse https://[ZOMBITRONIP:PORT]/ avec un telephone ou un ordinateur
 et https://[ZOMBITRONIP:PORT]/controller avec un telephone
 
-### Cas particulier du https
-Pour autoriser l'accès à certains capteurs 
+Et voilà !
 
 ## Mise à jour
 
