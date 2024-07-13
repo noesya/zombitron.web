@@ -11,17 +11,21 @@ Il vous faudra un ou plusieurs téléphones pourvus d'un navigateur avec accès 
 
 # Mode d'emploi
 ## Pour executer le serveur node js depuis son ordinateur
-1. Cloner le repo
+
+1. Installer node, git et yarn
   ```
-  git clone https://github.com/noesya/zombitron
+  pkg install nodejs git yarn
   ```
-2. Rentrer dans le dossier, installer les dépendances
+2. Cloner le repo
   ```
-  cd zombitron
+  git clone https://github.com/noesya/zombitron.web
+  ```
+3. Rentrer dans le dossier, installer les dépendances
+  ```
+  cd zombitron.web
   npm install
   ```
-
-3. Cas particulier pour un serveur https (permettant d'utiliser des données de capteurs natifs des téléphones)
+4. Cas particulier pour un serveur https (permettant d'utiliser des données de capteurs natifs des téléphones)
 Generer un certificat  https: 
 `sudo openssl req -x509 -nodes -days 364 -newkey rsa:4096 -keyout selfsigned.key -out selfsigned.crt`
 à placer à la racine du code. 
@@ -44,10 +48,7 @@ Parfois : il faut activer la motion dans les parametres du telephone > safari
 Avant l'étape 1 : 
 - Choisir un vieil Android pour le transformer en serveur-zombitron.
 - Installer [Termux](https://play.google.com/store/apps/details?id=com.termux) sur l'appareil
-- Lancer Termux et installer node, git et yarn
-  ```
-  pkg install nodejs git yarn
-  ```
+- Lancer Termux
 - Retourner à 1. 
 
 ## Une fois le serveur démarré
